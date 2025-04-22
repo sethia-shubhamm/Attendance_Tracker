@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    margin: 20px auto;
+    padding: 20px 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+    align-self: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #153677;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #edeef0;
+    border-radius: 30px;
+    padding: 10px 20px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 600px) {
+    .entry {
+        flex-direction: row;
+    }
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    background: #ff5945;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #e14d3c;
+}
+#inputBox{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+input[type="date"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+ul {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    font-size: 1rem;
+    padding: 15px 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background: #f0f0f0;
+}
+
+ul li p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+ul li button {
+    background-color: #ff5945;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+ul li button:hover {
+    background-color: #e14d3c;
+}
+
+.count{
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    margin-bottom: 20px;
+}
+
+.c{
+    margin: 7px;
+    color: #153677;
+}

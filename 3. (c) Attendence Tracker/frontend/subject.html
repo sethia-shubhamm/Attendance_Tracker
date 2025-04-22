@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">
+                <i class="fas fa-arrow-left me-2"></i>
+                Back to Subjects
+            </a>
+            <span class="navbar-text" id="subjectTitle"></span>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Attendance Header -->
+        <div class="attendance-header text-center">
+            <h1 id="subjectTitleHeader"></h1>
+            <p>Track your attendance and monitor your progress</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <!-- Add Attendance Form -->
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">
+                            <i class="fas fa-plus-circle me-2"></i>Add Attendance
+                        </h5>
+                        <form id="attendanceForm">
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                    <select class="form-select" id="status" required>
+                                        <option value="present">Present</option>
+                                        <option value="absent">Absent</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-plus me-2"></i>Add Entry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Statistics Card -->
+                <div class="card shadow-sm mt-4 stats-card">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4 text-white">
+                            <i class="fas fa-chart-bar me-2"></i>Statistics
+                        </h5>
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="stats-value" id="totalClasses">0</div>
+                                <div class="stats-label">Total</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stats-value" id="totalPresent">0</div>
+                                <div class="stats-label">Present</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stats-value" id="totalAbsent">0</div>
+                                <div class="stats-label">Absent</div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 10px;">
+                                <div id="attendanceProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="text-center mt-2">
+                                <small class="text-white">Attendance Rate: <span id="attendanceRate">0%</span></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Calendar -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">
+                            <i class="fas fa-calendar-alt me-2"></i>Calendar
+                        </h5>
+                        <div class="calendar-header">
+                            <button class="btn btn-sm btn-outline-primary" id="prevMonth">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h6 id="currentMonth" class="mb-0">September 2023</h6>
+                            <button class="btn btn-sm btn-outline-primary" id="nextMonth">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="calendar-grid mini-calendar" id="calendarGrid">
+                            <!-- Calendar will be generated here -->
+                        </div>
+                        <div class="attendance-summary mt-3">
+                            <div class="attendance-summary-item">
+                                <div class="attendance-summary-value" id="monthPresent">0</div>
+                                <div class="attendance-summary-label">Present</div>
+                            </div>
+                            <div class="attendance-summary-item">
+                                <div class="attendance-summary-value" id="monthAbsent">0</div>
+                                <div class="attendance-summary-label">Absent</div>
+                            </div>
+                            <div class="attendance-summary-item">
+                                <div class="attendance-summary-value" id="monthCancelled">0</div>
+                                <div class="attendance-summary-label">Cancelled</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attendance Legend -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">
+                            <i class="fas fa-info-circle me-2"></i>Legend
+                        </h5>
+                        <div class="attendance-legend">
+                            <div class="legend-item">
+                                <div class="legend-color present"></div>
+                                <span>Present</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color absent"></div>
+                                <span>Absent</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color cancelled"></div>
+                                <span>Cancelled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <!-- Attendance History -->
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">
+                            <i class="fas fa-history me-2"></i>Attendance History
+                        </h5>
+                        <div id="attendanceList">
+                            <!-- Attendance entries will be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the external JavaScript file -->
+    <script src="./attendance.js"></script>
+</body>
+</html> 

@@ -1,0 +1,317 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --background-color: #f8f9fa;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-transform: translateY(-5px);
+}
+
+body {
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  box-shadow: var(--card-shadow);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: var(--hover-transform);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.form-control, .form-select {
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+.card-title {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.attendance-card {
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+.attendance-card:hover {
+  transform: var(--hover-transform);
+}
+
+.status-present {
+  background-color: #d4edda !important;
+  border-left: 4px solid var(--success-color);
+}
+
+.status-absent {
+  background-color: #f8d7da !important;
+  border-left: 4px solid var(--danger-color);
+}
+
+.status-cancelled {
+  background-color: #e2e3e5 !important;
+  border-left: 4px solid #6c757d;
+}
+
+.stats-card {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.stats-value {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.stats-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--secondary-color);
+}
+
+.empty-state i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.input-group-text {
+  background-color: transparent;
+  border-right: none;
+}
+
+.input-group .form-control {
+  border-left: none;
+}
+
+.input-group .form-select {
+  border-left: none;
+}
+
+/* Attendance Tracker Specific Styles */
+.attendance-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+}
+
+.attendance-header h1 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.attendance-header p {
+  opacity: 0.9;
+}
+
+/* Mini Calendar Styles */
+.mini-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.mini-calendar .calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.mini-calendar .calendar-day:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.mini-calendar .calendar-day.today {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.mini-calendar .calendar-day.has-attendance {
+  position: relative;
+}
+
+.mini-calendar .calendar-day.has-attendance::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+.mini-calendar .calendar-day.present::after {
+  background-color: var(--success-color);
+}
+
+.mini-calendar .calendar-day.absent::after {
+  background-color: var(--danger-color);
+}
+
+.mini-calendar .calendar-day.cancelled::after {
+  background-color: #6c757d;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.calendar-header h6 {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.attendance-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.attendance-summary-item {
+  text-align: center;
+}
+
+.attendance-summary-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.attendance-summary-label {
+  font-size: 0.7rem;
+  color: #6c757d;
+}
+
+.attendance-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-color.present {
+  background-color: var(--success-color);
+}
+
+.legend-color.absent {
+  background-color: var(--danger-color);
+}
+
+.legend-color.cancelled {
+  background-color: #6c757d;
+}
+
+.attendance-chart {
+  height: 200px;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .card-img-top {
+    height: 150px;
+  }
+  
+  .mini-calendar {
+    gap: 0.15rem;
+  }
+  
+  .mini-calendar .calendar-day {
+    font-size: 0.7rem;
+  }
+}
